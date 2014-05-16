@@ -8,6 +8,9 @@ There are two parts to the Software Engineer Homework set. Part 1 is written ans
 
 1. How can Memcache improve a site’s performance? Include a description about how data is stored and retrieved in a multi-node configuration.
 
+Memcache can improve a web sites performance by decreasing the number of calls to the database. Memcached is an in memory key-value store for small chuncks of data (http://memcached.org/). Memcache servers can be stand alone servers or they may on the same server as a rails server. Each client has the list of all of the memcache servers and share the same hashing algorithm. Whenever a client needs data from the database it first checks if the data is stored in the memcache server. If it is, then it is retrieved. If it is not, then the client makes the request from the database. After it has the data from the database it stores the data in memcache. The clients know which server to request the data from (and where to send the data) because they all have a list of servers and the same hashing algorithm. The memcache servers do not talk directly to each other or sync.
+
+
 2. Please take a look at [this controller action](https://github.com/Hireology/homework/blob/master/some_controller.rb). Please tell us what you think of this code and how you would make it better.
 
 ###Part 2 - Programming Problems
