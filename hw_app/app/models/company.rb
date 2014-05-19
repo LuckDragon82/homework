@@ -13,16 +13,11 @@ class Company < ActiveRecord::Base
   end
 
   def role_for_user(user)
-    debugger
     self.memberships.where(user: user).first.try(:role) || (self.parent.present? ? self.parent.role_for_user(user) : nil)
   end
 
   def create_child_company
-    if self.number_of_parents < 2
-      self.children.create
-    else
-      nil
-    end
+    (self.number_of_parents < 2) ? self.children.create : nil
   end
 
   def number_of_parents
