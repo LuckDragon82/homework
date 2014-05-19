@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
   has_many :children, through: :parent_child_companies
   has_one :parent, through: :inverse_parent_child_companies
 
+
   def grant_user_role(user, role)
     self.memberships.create(user: user, role: role)
   end
@@ -16,6 +17,14 @@ class Company < ActiveRecord::Base
   end
 
   def create_child_company
+    if self.number_of_parents < 2
+      self.children.create
+    else
+      nil
+    end
+  end
 
+  def number_of_parents
+    self.parent.present? ? self.parent.number_of_parents + 1 : 0
   end
 end
