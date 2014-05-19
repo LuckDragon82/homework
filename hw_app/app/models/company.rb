@@ -8,7 +8,8 @@ class Company < ActiveRecord::Base
 
 
   def grant_user_role(user, role)
-    self.memberships.create(user: user, role: role)
+    membership = self.memberships.where(user: user).first
+    membership ? membership.update(role: role) : self.memberships.create(user: user, role: role)
   end
 
   def role_for_user(user)

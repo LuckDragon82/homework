@@ -8,7 +8,7 @@ describe Company do
     @company2 = @company.children.create
   end
 
-  describe 'role_for_user'
+  describe 'role_for_user' do
     it 'gets a users role from its parent, if it has no roles' do
       expect(@company2.role_for_user(@user)).to eq('admin')
     end
@@ -43,9 +43,16 @@ describe Company do
     end
   end
 
-  describe 'grant_role_for_user' do
+  describe 'grant_user_role' do
     it 'should grant a role for a user in the company if no memberships exist' do
+      user = User.new
+      @company2.grant_user_role(user, 'admin')
+      expect(@company2.role_for_user user).to eq('admin')
+    end
 
+    it 'should overwrite an old role if that user already has a membership' do
+      @company.grant_user_role(@user, 'denied')
+      expect(@company.role_for_user @user).to eq('denied')
     end
   end
 
