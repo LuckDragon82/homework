@@ -23,12 +23,14 @@ describe Company do
       expect(@company2.role_for_user(user2)).to be_nil
     end
   end
+
   describe 'number_of_parents' do
     it 'should correctly return number of parents' do
       expect(@company.number_of_parents).to eq(0)
       expect(@company2.number_of_parents).to eq(1)
     end
   end
+
   describe 'create_child_company' do
     it 'should create a new company that is a child of itself' do
       company = @company.create_child_company
@@ -38,6 +40,12 @@ describe Company do
     it 'should not create a company if it is a leaf (2 down from the root)' do
       company3 = @company2.create_child_company
       expect(company4 = company3.create_child_company).to be_nil
+    end
+  end
+
+  describe 'grant_role_for_user' do
+    it 'should grant a role for a user in the company if no memberships exist' do
+
     end
   end
 
