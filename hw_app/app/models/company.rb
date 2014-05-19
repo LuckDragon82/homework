@@ -14,4 +14,8 @@ class Company < ActiveRecord::Base
     debugger
     self.memberships.where(user: user).first.try(:role) || (self.parent.present? ? self.parent.role_for_user(user) : nil)
   end
+
+  def create_child_company
+
+  end
 end

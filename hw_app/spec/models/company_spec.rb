@@ -21,4 +21,9 @@ describe Company do
     expect(@company2.role_for_user(user2)).to be_nil
   end
 
+  it 'should correctly return number of parents' do
+    expect(@company.number_of_parents).to eq(0)
+    expect(@company.number_of_parents).to eq(1)
+  end
+
 end
