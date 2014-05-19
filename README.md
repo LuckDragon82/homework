@@ -30,3 +30,5 @@ For each line in the input file, the program should output three pieces of infor
 ```
 
 2) Please complete a set of classes for the problem described in [this blog post](http://www.adomokos.com/2012/10/the-organizations-users-roles-kata.html). Please do not create a database backend for this. Test doubles should work fine.
+
+- Had some trouble using Test Doubles instead of sqlite for testing. I would need to come up to speed on this on the job.
