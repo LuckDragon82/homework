@@ -31,4 +31,4 @@ For each line in the input file, the program should output three pieces of infor
 
 2) Please complete a set of classes for the problem described in [this blog post](http://www.adomokos.com/2012/10/the-organizations-users-roles-kata.html). Please do not create a database backend for this. Test doubles should work fine.
 
-- Had some trouble using Test Doubles instead of sqlite for testing. I would need to come up to speed on this on the job.
+- Had some trouble using Test Doubles instead of sqlite for testing. I would need to come up to speed on this on the job. After I submitted my pull request, I decided to checkout what the other candidates were doing. I realized I forgot about just doing a simple Plain Old Ruby version for question 4. so I wrote organization.rb . The work is entirely my own, I didn't look long enough to copy anything. But the idea for it came from one of the other submissions.
